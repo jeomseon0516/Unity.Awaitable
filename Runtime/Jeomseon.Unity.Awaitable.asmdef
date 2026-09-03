@@ -1,0 +1,14 @@
+{
+  "name": "Jeomseon.Unity.Awaitable",
+  "rootNamespace": "Jeomseon.Unity.Awaitable",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
