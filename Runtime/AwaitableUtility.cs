@@ -48,9 +48,14 @@ namespace Jeomseon.Unity.Awaitable
         /// 완료됩니다. <paramref name="cancellationToken"/>이 취소되면
         /// <see cref="OperationCanceledException"/>을 던집니다.
         /// </summary>
-        public static async UnityEngine.Awaitable WaitUntil(Func<bool> predicate, CancellationToken cancellationToken = default)
+        public static UnityEngine.Awaitable WaitUntil(Func<bool> predicate, CancellationToken cancellationToken = default)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return WaitUntilCore(predicate, cancellationToken);
+        }
+
+        private static async UnityEngine.Awaitable WaitUntilCore(Func<bool> predicate, CancellationToken cancellationToken)
+        {
             while (!predicate())
             {
                 cancellationToken.ThrowIfCancellationRequested();
@@ -63,9 +68,14 @@ namespace Jeomseon.Unity.Awaitable
         /// 될 때까지 매 프레임 다시 평가하며 기다립니다. 호출 시점에 이미 <see langword="false"/>면
         /// 즉시 완료됩니다.
         /// </summary>
-        public static async UnityEngine.Awaitable WaitWhile(Func<bool> predicate, CancellationToken cancellationToken = default)
+        public static UnityEngine.Awaitable WaitWhile(Func<bool> predicate, CancellationToken cancellationToken = default)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+            return WaitWhileCore(predicate, cancellationToken);
+        }
+
+        private static async UnityEngine.Awaitable WaitWhileCore(Func<bool> predicate, CancellationToken cancellationToken)
+        {
             while (predicate())
             {
                 cancellationToken.ThrowIfCancellationRequested();

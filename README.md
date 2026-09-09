@@ -60,6 +60,13 @@ await AwaitableUtility.WaitWhile(() => _loading, destroyCancellationToken);
 - 취소는 `CancellationToken` 하나로만 합니다. 취소 시 `OperationCanceledException`.
   `MonoBehaviour.destroyCancellationToken`을 그대로 넘겨 쓰는 것을 권장합니다.
 
+## 샘플
+
+Package Manager에서 **Basic Usage** 샘플을 Import한 뒤
+`Assets/Samples/Jeomseon Unity Awaitable/0.1.0/Basic Usage/AwaitableBasicUsage.unity`를 열고
+Play를 누르세요. 세 개의 큐브가 각 대기를 마치면 초록색으로 바뀌고, `WhenAll`과 조건 대기가
+모두 끝나면 상태 큐브가 파란색으로 바뀝니다.
+
 ## Unity가 이미 제공하는 것 (재구현하지 않음)
 
 `NextFrameAsync` / `WaitForSecondsAsync` / `EndOfFrameAsync` / `FixedUpdateAsync`,

@@ -61,6 +61,13 @@ await AwaitableUtility.WaitWhile(() => _loading, destroyCancellationToken);
 - Cancellation is `CancellationToken` only. Cancellation throws `OperationCanceledException`.
   Passing `MonoBehaviour.destroyCancellationToken` straight through is the recommended pattern.
 
+## Sample
+
+Import **Basic Usage** from Package Manager, open
+`Assets/Samples/Jeomseon Unity Awaitable/0.1.0/Basic Usage/AwaitableBasicUsage.unity`, and enter
+Play Mode. Three cubes turn green as their waits finish, and the status cube turns blue after
+`WhenAll` and both condition waits complete.
+
 ## What Unity already provides (not reimplemented)
 
 `NextFrameAsync` / `WaitForSecondsAsync` / `EndOfFrameAsync` / `FixedUpdateAsync`,

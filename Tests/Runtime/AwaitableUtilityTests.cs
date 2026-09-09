@@ -21,6 +21,12 @@ namespace Jeomseon.Unity.Awaitable.Tests
             Assert.Throws<ArgumentNullException>(() => AwaitableUtility.WaitUntil(null));
         }
 
+        [Test]
+        public void WaitWhile_NullPredicate_ThrowsArgumentNullException()
+        {
+            Assert.Throws<ArgumentNullException>(() => AwaitableUtility.WaitWhile(null));
+        }
+
         [UnityTest]
         public IEnumerator WhenAll_Empty_CompletesImmediately()
         {

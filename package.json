@@ -21,5 +21,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jeomseon0516/Unity.Awaitable.git"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Basic Usage",
+      "description": "Demonstrates WhenAll, WaitUntil, and WaitWhile in Play Mode.",
+      "path": "Samples~/BasicUsage"
+    }
+  ]
 }
