@@ -1,0 +1,32 @@
+{
+  "name": "com.jeomseon.unity.awaitable",
+  "version": "0.1.0",
+  "displayName": "Jeomseon Unity Awaitable",
+  "description": "Composition (WhenAll) and condition-wait (WaitUntil/WaitWhile) helpers layered thinly on Unity 6 Awaitable. Not a UniTask clone and not a new async primitive.",
+  "unity": "6000.6",
+  "unityRelease": "0f1",
+  "license": "MIT",
+  "dependencies": {},
+  "keywords": [
+    "jeomseon",
+    "unity",
+    "awaitable",
+    "async",
+    "await"
+  ],
+  "author": {
+    "name": "jeomseon0516",
+    "url": "https://github.com/jeomseon0516"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jeomseon0516/Unity.Awaitable.git"
+  },
+  "samples": [
+    {
+      "displayName": "Basic Usage",
+      "description": "Demonstrates WhenAll, WaitUntil, and WaitWhile in Play Mode.",
+      "path": "Samples~/BasicUsage"
+    }
+  ]
+}

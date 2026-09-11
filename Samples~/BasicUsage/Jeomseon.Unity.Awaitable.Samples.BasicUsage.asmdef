@@ -1,0 +1,7 @@
+{
+  "name": "Jeomseon.Unity.Awaitable.Samples.BasicUsage",
+  "rootNamespace": "Jeomseon.Unity.Awaitable.Samples.BasicUsage",
+  "references": [
+    "Jeomseon.Unity.Awaitable"
+  ]
+}

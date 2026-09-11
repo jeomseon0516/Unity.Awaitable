@@ -1,0 +1,19 @@
+{
+  "name": "Jeomseon.Unity.Awaitable.Tests",
+  "rootNamespace": "Jeomseon.Unity.Awaitable.Tests",
+  "references": [
+    "Jeomseon.Unity.Awaitable"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
