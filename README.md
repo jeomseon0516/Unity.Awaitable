@@ -4,8 +4,7 @@
 
 Unity 6 공식 `Awaitable` 위에 **공식 API에 없는 조합만** 얇게 얹은 확장입니다. UniTask 복제가
 아니고, 자체 `Task`/`ValueTask`류 비동기 primitive를 만들지 않습니다. 프레임·시간 대기, 스레드
-전환, 기본 취소는 Unity `Awaitable`이 이미 계약까지 제공하므로 그대로 씁니다. 설계 근거는 하네스
-`ADR-0011`.
+전환, 기본 취소는 Unity `Awaitable`이 이미 계약까지 제공하므로 그대로 씁니다.
 
 ## 요구 사항
 
@@ -78,7 +77,7 @@ Play를 누르세요. 세 개의 큐브가 각 대기를 마치면 초록색으�
 - `Jeomseon.Unity.Coroutines` — 대체 대상이 아닙니다. Coroutine(암묵적 Player Loop 실행)과
   Awaitable(명시적 async/await)은 다른 패턴으로 공존하며, 이 패키지는 Coroutines에 의존하지
   않습니다.
-- `Jeomseon.Unity.Dispatcher` — `ADR-0005`로 Edit Mode 전용으로 축소됐습니다. Play Mode/Player의
+- `Jeomseon.Unity.Dispatcher` — Edit Mode 전용으로 축소됐습니다. Play Mode/Player의
   스레드 전환은 Unity `Awaitable.MainThreadAsync`/`BackgroundThreadAsync`를 직접 쓰세요.
 - `Jeomseon.Unity.Reactive` — 무관합니다. Reactive는 이벤트 스트림, 이 패키지는 단발성 비동기
   작업입니다.

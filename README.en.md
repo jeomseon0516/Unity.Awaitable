@@ -5,7 +5,7 @@
 A thin extension over Unity 6's built-in `Awaitable` that adds **only the composition the
 official API lacks**. It is not a UniTask clone and does not introduce a new `Task`/`ValueTask`
 style primitive. Frame/time waiting, thread hops, and basic cancellation are already contract-
-complete in Unity `Awaitable`, so they are used as-is. Rationale: harness `ADR-0011`.
+complete in Unity `Awaitable`, so they are used as-is.
 
 ## Requirements
 
@@ -79,7 +79,7 @@ Play Mode. Three cubes turn green as their waits finish, and the status cube tur
 - `Jeomseon.Unity.Coroutines` -- not a replacement. Coroutines (implicit Player Loop execution)
   and Awaitable (explicit async/await) coexist as different patterns; this package does not
   depend on Coroutines.
-- `Jeomseon.Unity.Dispatcher` -- narrowed to Edit Mode only by `ADR-0005`. For Play Mode/Player
+- `Jeomseon.Unity.Dispatcher` -- narrowed to Edit Mode only. For Play Mode/Player
   thread hops use Unity `Awaitable.MainThreadAsync`/`BackgroundThreadAsync` directly.
 - `Jeomseon.Unity.Reactive` -- unrelated. Reactive is event streams; this package is one-shot
   async work.
