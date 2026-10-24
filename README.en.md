@@ -1,20 +1,25 @@
 # Jeomseon Unity Awaitable
 
-[한국어](./README.md) | English
+[한국어](README.md) | English
 
-A thin extension over Unity 6's built-in `Awaitable` that adds **only the composition the
-official API lacks**. It is not a UniTask clone and does not introduce a new `Task`/`ValueTask`
-style primitive. Frame/time waiting, thread hops, and basic cancellation are already contract-
-complete in Unity `Awaitable`, so they are used as-is.
+Adds WhenAll and WaitUntil/WaitWhile to Unity Awaitable, without a custom async primitive or PlayerLoop scheduler.
+
+## Quick start
+
+Start operations, pass each Awaitable once to WhenAll, and await the result once. Condition waits accept a predicate and optional CancellationToken.
+
+## Contracts and limitations
+
+Never consume the same Awaitable twice. WhenAll observes all entries and rethrows the first exception observed in input order. An already satisfied predicate may complete immediately even with a canceled token.
 
 ## Requirements
 
-- Unity 6000.6.0f1 or newer
-- No workspace package dependencies (only `Awaitable` and `CancellationToken`)
+- Unity `6000.6.0f1`
+- Package: `com.jeomseon.unity.awaitable` `0.1.0`
 
-## Install via OpenUPM
+## Installation
 
-Register the OpenUPM scoped registry once in your project's `Packages/manifest.json`.
+Merge this into your project's `Packages/manifest.json`; preserve existing dependencies and registries.
 
 ```json
 {
@@ -33,15 +38,15 @@ Register the OpenUPM scoped registry once in your project's `Packages/manifest.j
 }
 ```
 
-## Install via Git URL
-
-Enter the following URL in Unity Package Manager's `Install package from git URL`.
+Or use **Install package from git URL** in Package Manager:
 
 ```text
 https://github.com/jeomseon0516/Unity.Awaitable.git#v0.1.0
 ```
 
-## Included API (0.1.0)
+## API usage and details
+
+### Included API (0.1.0)
 
 ```csharp
 using Jeomseon.Unity.Awaitable;
@@ -61,20 +66,20 @@ await AwaitableUtility.WaitWhile(() => _loading, destroyCancellationToken);
 - Cancellation is `CancellationToken` only. Cancellation throws `OperationCanceledException`.
   Passing `MonoBehaviour.destroyCancellationToken` straight through is the recommended pattern.
 
-## Sample
+### Sample
 
 Import **Basic Usage** from Package Manager, open
 `Assets/Samples/Jeomseon Unity Awaitable/0.1.0/Basic Usage/AwaitableBasicUsage.unity`, and enter
 Play Mode. Three cubes turn green as their waits finish, and the status cube turns blue after
 `WhenAll` and both condition waits complete.
 
-## What Unity already provides (not reimplemented)
+### What Unity already provides (not reimplemented)
 
 `NextFrameAsync` / `WaitForSecondsAsync` / `EndOfFrameAsync` / `FixedUpdateAsync`,
 `Awaitable.MainThreadAsync` / `BackgroundThreadAsync`, `Awaitable.FromAsyncOperation`, and the
 `CancellationToken` overloads on most static methods. Use Unity `Awaitable` directly for those.
 
-## Relationship to other packages
+### Relationship to other packages
 
 - `Jeomseon.Unity.Coroutines` -- not a replacement. Coroutines (implicit Player Loop execution)
   and Awaitable (explicit async/await) coexist as different patterns; this package does not
@@ -84,7 +89,29 @@ Play Mode. Three cubes turn green as their waits finish, and the status cube tur
 - `Jeomseon.Unity.Reactive` -- unrelated. Reactive is event streams; this package is one-shot
   async work.
 
-## Staged plan
+### Staged plan
 
 See `ROADMAP.md`. 0.2 `WhenAny`/`Timeout`/cancellation helpers, 0.3 `PlayerLoopTiming`-based
 `Yield`, 0.4 Editor/Development-only diagnostics.
+
+## Samples
+
+Import the desired entry from **Package Manager > Samples**. Use the included Scene/Editor tool and complete its Setup step first, if required.
+
+- [Basic Usage](Samples~/BasicUsage/README.md)
+  - [AwaitableBasicUsage](Samples~/BasicUsage/AwaitableBasicUsage.unity)
+
+## Tests
+
+[Test sources](Tests)
+
+Add the package ID to manifest `testables`, then execute its relevant EditMode/PlayMode assemblies in Unity Test Runner.
+
+## Further reading
+
+[Complete source map and package metadata](Documentation~/Overview.en.md)
+- [Changelog](CHANGELOG.md)
+
+## License
+
+[License](LICENSE.md)
