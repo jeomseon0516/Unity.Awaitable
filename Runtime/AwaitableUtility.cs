@@ -9,7 +9,7 @@ namespace Jeomseon.Unity.Awaitable
     /// (<c>WaitUntil</c>/<c>WaitWhile</c>)만 얇게 얹은 확장입니다. 자체 Task-like primitive를
     /// 만들지 않고, 매 호출마다 새 <see cref="UnityEngine.Awaitable"/>만 반환합니다. 취소는
     /// <see cref="CancellationToken"/> 하나로만 하며, 취소 시 <see cref="OperationCanceledException"/>을
-    /// 던져 Unity <see cref="UnityEngine.Awaitable"/> 계약과 통일합니다. 근거: 하네스 ADR-0011.
+    /// 던져 Unity <see cref="UnityEngine.Awaitable"/> 계약과 통일합니다.
     /// </summary>
     public static class AwaitableUtility
     {
