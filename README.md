@@ -12,6 +12,8 @@ Unity Awaitable에 WhenAll과 WaitUntil/WaitWhile만 추가합니다. 자체 비
 
 같은 Awaitable을 중복 소비하지 마세요. WhenAll은 전부 관찰한 뒤 입력 순서로 처음 관찰한 예외 하나를 던집니다. 조건이 이미 만족되면 취소된 토큰이어도 대기 없이 완료할 수 있습니다.
 
+`WaitUntil`/`WaitWhile`는 대기가 필요하면 `Awaitable.NextFrameAsync`를 사용합니다. 메인 스레드에서 호출하세요. [공식 스레드 계약](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Awaitable.NextFrameAsync.html).
+
 ## 요구 사항
 
 - Unity `6000.6.0f1`

@@ -12,6 +12,8 @@ Start operations, pass each Awaitable once to WhenAll, and await the result once
 
 Never consume the same Awaitable twice. WhenAll observes all entries and rethrows the first exception observed in input order. An already satisfied predicate may complete immediately even with a canceled token.
 
+`WaitUntil`/`WaitWhile` use `Awaitable.NextFrameAsync` when waiting is required. Call them from the main thread. [Official threading contract](https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Awaitable.NextFrameAsync.html).
+
 ## Requirements
 
 - Unity `6000.6.0f1`
